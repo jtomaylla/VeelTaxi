@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VeelTaxi</string>
+    <string name="ServerError">Por favor verfique su conexion de Internet</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="noDataError">No hay datos!!</string>
+    <string name="please_wait">Espere por favor</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="title_activity_main">VeelTaxi</string>
+    <string name="InvalidEmail">Email invalido</string>
+    <string name="InvalidPassword">Contraseña invalida</string>
+    <string name="InvalidUsername">Usuario invalido</string>
+    <string name="EmailHint">Ingrese su Correo</string>
+    <string name="UserNameHint">Ingrese su Usuario</string>
+    <string name="StartText">Comenzar</string>
+    <string name="LoginText">Ingresar</string>
+</resources>

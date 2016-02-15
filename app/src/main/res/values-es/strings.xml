@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VeelTaxi</string>
-    <string name="ServerError">Por favor verfique su conexion de Internet</string>
+    <string name="ServerError">Error de Servidor</string>
     <string name="action_settings">Ajustes</string>
     <string name="noDataError">No hay datos!!</string>
     <string name="please_wait">Espere por favor</string>
@@ -22,4 +22,6 @@
     <string name="taxi_id_text">ID de Conductor : </string>
     <string name="subjectText">Veeltaxi Confirmacion</string>
     <string name="messagetext">Estimado Usuario, <br></br> este es un mensaje de confirmacion de inicio del servicio,<br></br>Saludos</string>
+    <string name="noTaxiId">ID Taxi no existe</string>
+    <string name="NoInternetConnection">No hay conexion a Internet</string>
 </resources>

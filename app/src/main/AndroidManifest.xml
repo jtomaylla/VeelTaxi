@@ -20,9 +20,9 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait">
@@ -48,7 +48,14 @@
         <activity
             android:name=".activities.Main2Activity"
             android:label="@string/title_activity_main"
-            android:theme="@style/MyTheme"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme" />
+
+
+        <activity
+            android:name=".activities.VeelTaxiWebActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/MyTheme" />
         <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

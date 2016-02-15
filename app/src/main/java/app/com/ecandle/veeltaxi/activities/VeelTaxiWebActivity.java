@@ -17,7 +17,7 @@ public class VeelTaxiWebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_veeltaxi_web);
 
         WebView myWebView = (WebView) this.findViewById(R.id.webView);
-        myWebView.loadUrl("http://ecandlemobile.com/veeltaxi/");
+        myWebView.loadUrl("http://ecandlemobile.com/veeltaxi/index.php");
 
     }
 

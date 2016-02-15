@@ -24,6 +24,7 @@ import retrofit.RetrofitError;
  * Created by Jtomaylla on 2015-02-03.
  */
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
+    private static final String LOG_TAG = LoginActivity.class.getName();
     EditText etusername, etpassword, etemail;
     Button btnlogin, btnSaltearse;
     ImageButton  imbAdmin;
@@ -54,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         if (M.getPrimaryEmail(this) != null){
             etemail.setText(M.getPrimaryEmail(this));
+            Log.i(LOG_TAG+"M.getPrimaryEmail:",M.getPrimaryEmail(this));
         }
 
 
@@ -89,13 +91,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         }
 
         if (v.getId() == R.id.imbAdmin) {
-            if (tblRegister.getVisibility() == View.VISIBLE) {
-                tblRegister.setVisibility(View.INVISIBLE);
-                tblLogin.setVisibility(View.VISIBLE);
-            } else {
-                tblRegister.setVisibility(View.VISIBLE);
-                tblLogin.setVisibility(View.INVISIBLE);
-            }
+//            if (tblRegister.getVisibility() == View.VISIBLE) {
+//                tblRegister.setVisibility(View.INVISIBLE);
+//                tblLogin.setVisibility(View.VISIBLE);
+//            } else {
+//                tblRegister.setVisibility(View.VISIBLE);
+//                tblLogin.setVisibility(View.INVISIBLE);
+//            }
+            Intent mIntent = new Intent(LoginActivity.this, VeelTaxiWebActivity.class ); //GetAllTables.class
+
+            startActivity(mIntent);
+            finish();
 
         }
     }
@@ -144,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             });
         }else
         {
-            M.showToast(LoginActivity.this, "No Internet Connection");
+            M.showToast(LoginActivity.this, getString(R.string.NoInternetConnection));
         }
     }
 

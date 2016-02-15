@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(mIntent);
                         finish();
                     } else {
-                        M.showToast(MainActivity.this, "Driver ID does nos exist");
+                        M.showToast(MainActivity.this, getString(R.string.noTaxiId));
                     }
 
                 }
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }else
         {
-            M.showToast(MainActivity.this, "No Internet Connection");
+            M.showToast(MainActivity.this, getString(R.string.NoInternetConnection));
         }
 
 

@@ -16,12 +16,12 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/imbAdmin"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:id="@+id/imbAdmin1"
         android:src="@drawable/veeltaxi_logo"
         android:layout_marginBottom="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
         android:scaleType="centerCrop" />
 

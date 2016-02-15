@@ -52,6 +52,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         btnSaltearse.setOnClickListener(this);
         imbAdmin.setOnClickListener(this);
 
+        if (M.getPrimaryEmail(this) != null){
+            etemail.setText(M.getPrimaryEmail(this));
+        }
+
+
     }
 
     @Override
@@ -71,7 +76,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             email = etemail.getText().toString().trim();
             if (isValidEmail(email)) {
                 // Guardar email valido en Shared Preferences
-                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
+                M.setPrimaryEmail(email,LoginActivity.this);
+                M.setAlternativeEmail("juan.tomaylla@hotmail.com",LoginActivity.this);
+                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class );
 
                 startActivity(mIntent);
                 finish();
@@ -92,7 +99,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         }
     }
-
 
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
@@ -117,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         Log.e("uid", loginModel.getUserid() + "");
                         M.setPassword(password, LoginActivity.this);
                         M.setUsername(username, LoginActivity.this);
-                        Intent mIntent = new Intent(LoginActivity.this, MainActivity.class ); //GetAllTables.class
+                        Intent mIntent = new Intent(LoginActivity.this, VeelTaxiWebActivity.class ); //GetAllTables.class
 
                         startActivity(mIntent);
                         finish();

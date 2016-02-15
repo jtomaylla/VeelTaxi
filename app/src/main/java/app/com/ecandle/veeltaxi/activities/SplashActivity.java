@@ -68,8 +68,8 @@ public class SplashActivity extends AppCompatActivity {
 
                     M.setID(loginModel.getUserid(), SplashActivity.this);
 
-//                    Intent mIntent = new Intent(SplashActivity.this, MenuPrincipalActivity.class);
-                    Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
+//                    Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent mIntent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(mIntent);
                     finish();
                 } else {

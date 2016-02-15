@@ -14,4 +14,12 @@
     <string name="UserNameHint">Ingrese su Usuario</string>
     <string name="StartText">Comenzar</string>
     <string name="LoginText">Ingresar</string>
+    <string name="TaxiIdHint">Ingrese Codigo de Taxi</string>
+    <string name="taxi_name_text">Jhair</string>
+    <string name="taxi_email_text">Correo: jahyr@veeltaxi.com</string>
+    <string name="taxi_phone_text">Telefono :  </string>
+    <string name="taxi_company_text">Compañia :</string>
+    <string name="taxi_id_text">ID de Conductor : </string>
+    <string name="subjectText">Veeltaxi Confirmacion</string>
+    <string name="messagetext">Estimado Usuario, <br></br> este es un mensaje de confirmacion de inicio del servicio,<br></br>Saludos</string>
 </resources>

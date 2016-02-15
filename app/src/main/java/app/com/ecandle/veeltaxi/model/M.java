@@ -107,6 +107,29 @@ public class M {
         return mSharedPreferences.getString("userid", "");
     }
 
+    public static boolean setPrimaryEmail(String primaryEmail, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("primaryEmail", primaryEmail);
+        return editor.commit();
+    }
+
+    public static String getPrimaryEmail(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        return mSharedPreferences.getString("primaryEmail", null);
+    }
+
+    public static boolean setAlternativeEmail(String alternativeEmail, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("alternativeEmail", alternativeEmail);
+        return editor.commit();
+    }
+
+    public static String getAlternativeEmail(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        return mSharedPreferences.getString("alternativeEmail", null);
+    }
 
     public static boolean setCountryid(int ID, Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("countryid", 0);

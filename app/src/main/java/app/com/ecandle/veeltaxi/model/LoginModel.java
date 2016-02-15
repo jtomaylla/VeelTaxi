@@ -1,8 +1,8 @@
 package app.com.ecandle.veeltaxi.model;
 
-/**
- * Created by reeva on 14/9/15.
- */
+// *
+// * Created by jtomaylla on 2016-02-02.
+// *
 public class LoginModel {
 
 

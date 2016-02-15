@@ -5,6 +5,7 @@ public class DataManager {
 	public static final String TAG = "Demo";
 	//public static final String MAIN = "http://ecandlemobile.com/FortinRestaurant/webservice/";  // Change your URL here.
 //    http://www.ecandlemobile.com/msi_licencias/webservice/
+	//public static final String MAIN = "http://ecandlemobile.com/veeltaxi/webservice/";
 	public static final String MAIN = "http://ecandlemobile.com/veeltaxi/webservice/";
 	//    public static final String URL = "http://ecandlemobile.com/FortinRestaurant/upload/";
 	public static final String URL = "http://ecandlemobile.com/veeltaxi/upload/";

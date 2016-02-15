@@ -13,8 +13,7 @@ import retrofit.http.POST;
 public interface DriverAPI {
 @FormUrlEncoded
     @POST("/getDriverByDriverId.php")
-    void search(@Field("driverid") String driverid,
-               Callback<DriverModel> response);
+    void search(@Field("driverid") String driverid, Callback<DriverModel> response);
 
 
 //    @Multipart
@@ -37,4 +36,5 @@ public interface DriverAPI {
 //                    @Part("logintype") String logintype,
 //                    @Part("name") String name,
 //                    Callback<ResponseModel> response);
+
 }

@@ -21,7 +21,16 @@
     <string name="taxi_company_text">Compañia :</string>
     <string name="taxi_id_text">ID de Conductor : </string>
     <string name="subjectText">Veeltaxi Confirmacion</string>
-    <string name="messagetext">Estimado Usuario, <br></br> este es un mensaje de confirmacion de inicio del servicio,<br></br>Saludos</string>
+    <string name="messagetext">Estimado Usuario, este es un mensaje de confirmacion de inicio del servicio, Saludos</string>
     <string name="noTaxiId">ID Taxi no existe</string>
     <string name="NoInternetConnection">No hay conexion a Internet</string>
+
+    <string name="home_item">Inicio</string>
+    <string name="email_prim_edit_item">Cambiar Correo Principal</string>
+    <string name="email_alt_edit_item">Cambiar Correo Contacto</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="configuracion_item">Configuración</string>
+    <string name="EmailChanged">Correo Cambiado!!</string>
+    <string name="EmailChangeDialog">Dialogo Cambio de Correo</string>
+    <string name="DoneText">Hecho</string>
 </resources>

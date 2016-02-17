@@ -185,6 +185,7 @@ public class M {
 //        }
 //        return bmpUri;
 //    }
+
     public static void showNotification(Context mContext, Intent resultIntent, String title, String text, int id) {
         PendingIntent resultPendingIntent = PendingIntent.getActivity(mContext, 0,
                 resultIntent, PendingIntent.FLAG_ONE_SHOT);

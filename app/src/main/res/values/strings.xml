@@ -39,7 +39,17 @@
     <string name="taxi_company_text">Company : </string>
     <string name="taxi_id_text">Taxi Driver ID : </string>
     <string name="subjectText">VeelTaxi Confirmation</string>
-    <string name="messagetext">Hi User, <br></br> this a  Start Confirmation Service<br></br>Greets</string>
+    <string name="messagetext">Hi User, this a  Start Confirmation Service Greets</string>
     <string name="noTaxiId">Taxi Id does not exist</string>
     <string name="NoInternetConnection">No Internet Connection</string>
+
+    <string name="home_item">Home</string>
+    <string name="email_prim_edit_item">Edit Contact Email</string>
+    <string name="email_alt_edit_item">Edit Contact Email</string>
+    <string name="log_out_item">Logout</string>
+    <string name="configuracion_item">Configuration</string>
+    <string name="EmailChanged">Email Changed!!</string>
+    <string name="EmailChangeDialog">Email Change dialog</string>
+    <string name="DoneText">Done</string>
+    <string name="CancelText">Cancelar</string>
 </resources>

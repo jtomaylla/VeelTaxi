@@ -1,11 +1,22 @@
 package app.com.ecandle.veeltaxi.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,6 +31,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.GoogleMap;
 
 import app.com.ecandle.veeltaxi.R;
+import app.com.ecandle.veeltaxi.Util.AllConstants;
 import app.com.ecandle.veeltaxi.model.DriverModel;
 import app.com.ecandle.veeltaxi.model.M;
 import app.com.ecandle.veeltaxi.webservices.APIService;
@@ -73,11 +85,37 @@ public class MainActivity extends AppCompatActivity {
     EditText edtTaxiId;
     ImageButton imbSearch;
     ConnectionDetector connectionDetector;
+    TextView tvwEmail;
+    /**
+     * Instancia del drawer
+     */
+    private DrawerLayout drawerLayout;
+
+    /**
+     * Titulo inicial del drawer
+     */
+    private String drawerTitle;
+
+
+    String emailType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
+        setToolbar(); // Setear Toolbar como action bar
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        TextView tvwEmail = (TextView) findViewById(R.id.email);
+        if (M.getPrimaryEmail(this) != null){
+            tvwEmail.setText(M.getPrimaryEmail(this));
+            Log.i(TAG+"M.getPrimaryEmail:",M.getPrimaryEmail(this));
+        }
+        if (navigationView != null) {
+            setupDrawerContent(navigationView);
+        }
+
         connectionDetector = new ConnectionDetector(this);
         edtTaxiId = (EditText) findViewById(R.id.edtTaxiId);
         imbSearch = (ImageButton) findViewById(R.id.imbSearch);
@@ -157,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
         // adding banner add
         adView = (AdView) findViewById(R.id.adView);
+        //adView.setAdSize(AdSize.FULL_BANNER);
         bannerRequest = new AdRequest.Builder().build();
         adView.loadAd(bannerRequest);
 
@@ -187,4 +226,158 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        final ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            // Poner ícono del drawer toggle
+            ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // Marcar item presionado
+                        menuItem.setChecked(true);
+                        // Crear nuevo fragmento
+                        String title = menuItem.getTitle().toString();
+                        //selectItem(title);
+                        setSelectedOption(menuItem);
+                        return true;
+                    }
+                }
+        );
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            getMenuInflater().inflate(R.menu.main, menu);
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Log.i(TAG,"LOGOUT TB id:"+id);
+
+        switch (id) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+
+        }
+        if (id == AllConstants.draw_logout){
+            M.setUsername(null, MainActivity.this);
+            M.setPassword(null, MainActivity.this);
+            Intent i3 = new Intent(this, LoginActivity.class);
+            finish();
+            startActivity(i3);
+            overridePendingTransition(0, 0);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setSelectedOption(MenuItem menuItem){
+
+//        menuItem.setChecked(true);
+//        drawerLayout.closeDrawers();
+
+
+        switch (menuItem.getItemId()) {
+            case R.id.email_prim_edit:
+                emailType="prim";
+                showChangeEmailDialog(emailType);
+                break;
+            case R.id.email_alt_edit:
+                emailType="alt";
+                showChangeEmailDialog(emailType);
+                break;
+
+            case R.id.nav_log_out :
+                M.setUsername(null, MainActivity.this);
+                M.setPassword(null, MainActivity.this);
+                Intent i3 = new Intent(this, LoginActivity.class);
+                finish();
+                startActivity(i3);
+                overridePendingTransition(0,0);
+        }
+
+
+
+        // Highlight the selected item, update the title, and close the drawer
+        menuItem.setChecked(true);
+        setTitle(menuItem.getTitle());
+        drawerLayout.closeDrawers();
+    }
+
+    public void showChangeEmailDialog(final String EmailType) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.email_edit_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.edt_edit_email);
+        // Get email from Shared Preferences
+        if (EmailType.equals("prim")) {
+            if (M.getPrimaryEmail(this) != null){
+                edt.setText(M.getPrimaryEmail(this));
+                Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
+            }
+
+        }
+        if (EmailType.equals("alt")) {
+            if (M.getAlternativeEmail(this) != null){
+                edt.setText(M.getAlternativeEmail(this));
+                Log.i(TAG + "-M.getAlternativeEmail:", M.getAlternativeEmail(this));
+            }
+        }
+
+        dialogBuilder.setTitle(getResources().getString(R.string.EmailChangeDialog));
+        dialogBuilder.setMessage(getString(R.string.EmailHint));
+        dialogBuilder.setPositiveButton(getString(R.string.DoneText), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+                String email = edt.getText().toString().trim();
+
+                if (isValidEmail(email)) {
+                    // Guardar email valido en Shared Preferences
+                    if (EmailType.equals("prim")) {
+                        // Guardar email valido en Shared Preferences
+                        M.setPrimaryEmail(email, MainActivity.this);
+
+                    }
+                    if (EmailType.equals("alt")) {
+                        M.setAlternativeEmail(email, MainActivity.this);
+                    }
+                    M.showToast(MainActivity.this, getString(R.string.EmailChanged));
+                } else {
+                    edt.setError(getResources().getString(R.string.InvalidEmail));
+                    M.showToast(MainActivity.this, getString(R.string.InvalidEmail));
+                }
+
+            }
+        });
+        dialogBuilder.setNegativeButton(getString(R.string.CancelText), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+    public static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
 }

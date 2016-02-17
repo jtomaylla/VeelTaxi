@@ -20,9 +20,9 @@ import app.com.ecandle.veeltaxi.webservices.AuthenticationAPI;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 
-/**
- * Created by Jtomaylla on 2015-02-03.
- */
+//**
+// * Created by Jtomaylla on 2015-02-03.
+// *
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
     private static final String LOG_TAG = LoginActivity.class.getName();
     EditText etusername, etpassword, etemail;
@@ -37,25 +37,25 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         connectionDetector = new ConnectionDetector(this);
-        btnlogin = (Button) findViewById(R.id.btnlogin);
+        //btnlogin = (Button) findViewById(R.id.btnlogin);
         btnSaltearse = (Button) findViewById(R.id.btnSaltearse);
         imbAdmin = (ImageButton) findViewById(R.id.imbAdmin);
 
-        etusername = (EditText) findViewById(R.id.etusername);
+        //etusername = (EditText) findViewById(R.id.etusername);
         etemail = (EditText) findViewById(R.id.etemail);
-        etpassword = (EditText) findViewById(R.id.etpassword);
-        etusername.setHint(getString(R.string.UserNameHint));
+        //etpassword = (EditText) findViewById(R.id.etpassword);
+//        etusername.setHint(getString(R.string.UserNameHint));
 
         tblRegister = (LinearLayout) findViewById(R.id.tblRegister);
-        tblLogin = (LinearLayout) findViewById(R.id.tblLogin);
+        //tblLogin = (LinearLayout) findViewById(R.id.tblLogin);
 
-        btnlogin.setOnClickListener(this);
+        //btnlogin.setOnClickListener(this);
         btnSaltearse.setOnClickListener(this);
         imbAdmin.setOnClickListener(this);
 
         if (M.getPrimaryEmail(this) != null){
             etemail.setText(M.getPrimaryEmail(this));
-            Log.i(LOG_TAG+"M.getPrimaryEmail:",M.getPrimaryEmail(this));
+            Log.i(LOG_TAG + "M.getPrimaryEmail:", M.getPrimaryEmail(this));
         }
 
 
@@ -63,17 +63,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnlogin) {
-            username = etusername.getText().toString().trim();
-            password = etpassword.getText().toString().trim();
-            if (username.length() <= 2) {
-                etusername.setError(getString(R.string.InvalidUsername));
-            } else if (password.length() <= 5) {
-                etpassword.setError(getString(R.string.InvalidPassword));
-            } else {
-                login();
-            }
-        }
+//        if (v.getId() == R.id.btnlogin) {
+//            username = etusername.getText().toString().trim();
+//            password = etpassword.getText().toString().trim();
+//            if (username.length() <= 2) {
+//                etusername.setError(getString(R.string.InvalidUsername));
+//            } else if (password.length() <= 5) {
+//                etpassword.setError(getString(R.string.InvalidPassword));
+//            } else {
+//                login();
+//            }
+//        }
         if (v.getId() == R.id.btnSaltearse) {
             email = etemail.getText().toString().trim();
             if (isValidEmail(email)) {
@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         }
     }
 
-    public final static boolean isValidEmail(CharSequence target) {
+    public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
@@ -153,7 +153,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             M.showToast(LoginActivity.this, getString(R.string.NoInternetConnection));
         }
     }
-
 
 
 }

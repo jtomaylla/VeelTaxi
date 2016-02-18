@@ -39,7 +39,7 @@
     <string name="taxi_company_text">Company : </string>
     <string name="taxi_id_text">Taxi Driver ID : </string>
     <string name="subjectText">VeelTaxi Confirmation</string>
-    <string name="messagetext">Hi User, this a  Start Confirmation Service Greets</string>
+    <string name="messagetext">this a  start confirmation service</string>
     <string name="noTaxiId">Taxi Id does not exist</string>
     <string name="NoInternetConnection">No Internet Connection</string>
 
@@ -52,4 +52,11 @@
     <string name="EmailChangeDialog">Email Change dialog</string>
     <string name="DoneText">Done</string>
     <string name="CancelText">Cancelar</string>
+    <string name="messageHeader">Hi, everyone</string>
+    <string name="messageBody">This mail is to inform you...</string>
+
+    <string name="htmlEmail"><![CDATA[<body><h1>Hi All</h1><p>This message explains your Service Start with
+      <strong>VeelTaxi </strong> app in Peru.&nbsp;</p><br><br>
+      <blockquote>Greets<a></blockquote><br>VeelTaxi Team</body>]]></string>
+
 </resources>

@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             if (isValidEmail(email)) {
                 // Guardar email valido en Shared Preferences
                 M.setPrimaryEmail(email,LoginActivity.this);
-                M.setAlternativeEmail("juan.tomaylla@hotmail.com",LoginActivity.this);
+                //M.setAlternativeEmail("juan.tomaylla@hotmail.com",LoginActivity.this);
                 Intent mIntent = new Intent(LoginActivity.this, MainActivity.class );
 
                 startActivity(mIntent);

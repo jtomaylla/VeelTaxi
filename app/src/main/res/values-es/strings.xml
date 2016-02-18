@@ -44,4 +44,10 @@
     <string name="PleaseWait">Espere por favor..</string>
     <string name="SendingMail">Enviando Correo</string>
     <string name="EmailSent">Correo electrónico enviado!!</string>
+    <string name="CancelText">Cancelar</string>
+    <string name="EmailIsNotChanged">El correo electrónico no ha sido cambiado</string>
+    <string name="interstitial_ad_sample">Interstitial Ad Sample</string>
+    <string name="next_level">Sguiente Nivel</string>
+    <string name="start_level">Nivel 1</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

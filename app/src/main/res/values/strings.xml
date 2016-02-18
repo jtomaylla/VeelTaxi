@@ -51,7 +51,7 @@
     <string name="EmailChanged">Email Changed!!</string>
     <string name="EmailChangeDialog">Email Change dialog</string>
     <string name="DoneText">Done</string>
-    <string name="CancelText">Cancelar</string>
+    <string name="CancelText">Cancel</string>
     <string name="messageHeader">Hi, everyone</string>
     <string name="messageBody">This mail is to inform you...</string>
 
@@ -64,5 +64,6 @@
     <string name="PleaseWait">Please wait</string>
     <string name="SendingMail">Sending Mail</string>
     <string name="EmailSent">Email sent!!</string>
+    <string name="EmailIsNotChanged">Email has not been changed</string>
 
 </resources>

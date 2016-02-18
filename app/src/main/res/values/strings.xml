@@ -58,5 +58,11 @@
     <string name="htmlEmail"><![CDATA[<body><h1>Hi All</h1><p>This message explains your Service Start with
       <strong>VeelTaxi </strong> app in Peru.&nbsp;</p><br><br>
       <blockquote>Greets<a></blockquote><br>VeelTaxi Team</body>]]></string>
+    <string name="ContactEmailDoesNotExist">Contact Email Does Not Exist!!</string>
+    <string name="VeelTaxiEmail" translatable="false">veeltaxi2015@gmail.com</string>
+    <string name="VeelTaxiAdmin">Veel Taxi Admin</string>
+    <string name="PleaseWait">Please wait</string>
+    <string name="SendingMail">Sending Mail</string>
+    <string name="EmailSent">Email sent!!</string>
 
 </resources>

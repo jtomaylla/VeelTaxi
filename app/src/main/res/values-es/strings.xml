@@ -39,4 +39,9 @@
     <string name="htmlEmail"><![CDATA[<body><h1>Estimado usuario,<br></h1><p>Este es un mensaje de confirmacion de inicio del servicio con
       app <strong>VeelTaxi </strong> in Peru.&nbsp;</p><br><br>
       <blockquote>Saludos,<a></blockquote><br>El equipo VeelTaxi</body>]]></string>
+    <string name="ContactEmailDoesNotExist">No existe Correo de Contacto</string>
+    <string name="VeelTaxiAdmin">Administrador VeelTaxi</string>
+    <string name="PleaseWait">Espere por favor..</string>
+    <string name="SendingMail">Enviando Correo</string>
+    <string name="EmailSent">Correo electrónico enviado!!</string>
 </resources>

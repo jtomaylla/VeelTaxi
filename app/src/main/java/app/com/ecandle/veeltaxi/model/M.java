@@ -119,18 +119,52 @@ public class M {
         return mSharedPreferences.getString("primaryEmail", null);
     }
 
-    public static boolean setAlternativeEmail(String alternativeEmail, Context mContext) {
+    public static boolean setAlternativeEmail1(String alternativeEmail1, Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("settings", 0);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString("alternativeEmail", alternativeEmail);
+        editor.putString("alternativeEmail1", alternativeEmail1);
         return editor.commit();
     }
 
-    public static String getAlternativeEmail(Context mContext) {
+    public static String getAlternativeEmail1(Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("settings", 0);
-        return mSharedPreferences.getString("alternativeEmail", null);
+        return mSharedPreferences.getString("alternativeEmail1", null);
+    }
+    public static boolean setAlternativeEmail2(String alternativeEmail2, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("alternativeEmail2", alternativeEmail2);
+        return editor.commit();
     }
 
+    public static String getAlternativeEmail2(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        return mSharedPreferences.getString("alternativeEmail2", null);
+    }
+
+    public static boolean setAlternativeEmail3(String alternativeEmail3, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("alternativeEmail3", alternativeEmail3);
+        return editor.commit();
+    }
+
+    public static String getAlternativeEmail3(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        return mSharedPreferences.getString("alternativeEmail3", null);
+    }
+
+    public static boolean setAlternativeEmail4(String alternativeEmail4, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("alternativeEmail4", alternativeEmail4);
+        return editor.commit();
+    }
+
+    public static String getAlternativeEmail4(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        return mSharedPreferences.getString("alternativeEmail4", null);
+    }
     public static boolean setCountryid(int ID, Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("countryid", 0);
         SharedPreferences.Editor editor = mSharedPreferences.edit();

@@ -297,14 +297,25 @@ public class MainActivity extends AppCompatActivity {
 
         switch (menuItem.getItemId()) {
             case R.id.email_prim_edit:
-                emailType="prim";
+                emailType=AllConstants.EmailTypePrimary;
                 showChangeEmailDialog(emailType);
                 break;
-            case R.id.email_alt_edit:
-                emailType="alt";
+            case R.id.email_alt1_edit:
+                emailType=AllConstants.EmailTypeAlternative1;
                 showChangeEmailDialog(emailType);
                 break;
-
+            case R.id.email_alt2_edit:
+                emailType=AllConstants.EmailTypeAlternative2;
+                showChangeEmailDialog(emailType);
+                break;
+            case R.id.email_alt3_edit:
+                emailType=AllConstants.EmailTypeAlternative3;
+                showChangeEmailDialog(emailType);
+                break;
+            case R.id.email_alt4_edit:
+                emailType=AllConstants.EmailTypeAlternative4;
+                showChangeEmailDialog(emailType);
+                break;
             case R.id.nav_log_out :
                 M.setUsername(null, MainActivity.this);
                 M.setPassword(null, MainActivity.this);
@@ -330,22 +341,44 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText edt = (EditText) dialogView.findViewById(R.id.edt_edit_email);
         // Get email from Shared Preferences
-        if (EmailType.equals("prim")) {
+        if (EmailType.equals(AllConstants.EmailTypePrimary)) {
+            dialogBuilder.setMessage(getString(R.string.EmailPrimary));
             if (M.getPrimaryEmail(this) != null){
                 edt.setText(M.getPrimaryEmail(this));
                 Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
             }
 
         }
-        if (EmailType.equals("alt")) {
-            if (M.getAlternativeEmail(this) != null){
-                edt.setText(M.getAlternativeEmail(this));
-                Log.i(TAG + "-M.getAlternativeEmail:", M.getAlternativeEmail(this));
+        if (EmailType.equals(AllConstants.EmailTypeAlternative1)) {
+            dialogBuilder.setMessage(getString(R.string.EmailAlternative1));
+            if (M.getAlternativeEmail1(this) != null){
+                edt.setText(M.getAlternativeEmail1(this));
+                Log.i(TAG + "M.getAlternativeEmail1:", M.getAlternativeEmail1(this));
             }
         }
-
+        if (EmailType.equals(AllConstants.EmailTypeAlternative2)) {
+            dialogBuilder.setMessage(getString(R.string.EmailAlternative2));
+            if (M.getAlternativeEmail2(this) != null){
+                edt.setText(M.getAlternativeEmail2(this));
+                Log.i(TAG + "M.getAlternativeEmail2:", M.getAlternativeEmail2(this));
+            }
+        }
+        if (EmailType.equals(AllConstants.EmailTypeAlternative3)) {
+            dialogBuilder.setMessage(getString(R.string.EmailAlternative3));
+            if (M.getAlternativeEmail3(this) != null){
+                edt.setText(M.getAlternativeEmail3(this));
+                Log.i(TAG + "M.getAlternativeEmail3:", M.getAlternativeEmail3(this));
+            }
+        }
+        if (EmailType.equals(AllConstants.EmailTypeAlternative4)) {
+            dialogBuilder.setMessage(getString(R.string.EmailAlternative4));
+            if (M.getAlternativeEmail4(this) != null){
+                edt.setText(M.getAlternativeEmail4(this));
+                Log.i(TAG + "M.getAlternativeEmail4:", M.getAlternativeEmail4(this));
+            }
+        }
         dialogBuilder.setTitle(getResources().getString(R.string.EmailChangeDialog));
-        dialogBuilder.setMessage(getString(R.string.EmailHint));
+
         dialogBuilder.setPositiveButton(getString(R.string.DoneText), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 //do something with edt.getText().toString();
@@ -353,13 +386,22 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isValidEmail(email)) {
                     // Guardar email valido en Shared Preferences
-                    if (EmailType.equals("prim")) {
+                    if (EmailType.equals(AllConstants.EmailTypePrimary)) {
                         // Guardar email valido en Shared Preferences
                         M.setPrimaryEmail(email, MainActivity.this);
 
                     }
-                    if (EmailType.equals("alt")) {
-                        M.setAlternativeEmail(email, MainActivity.this);
+                    if (EmailType.equals(AllConstants.EmailTypeAlternative1)) {
+                        M.setAlternativeEmail1(email, MainActivity.this);
+                    }
+                    if (EmailType.equals(AllConstants.EmailTypeAlternative2)) {
+                        M.setAlternativeEmail2(email, MainActivity.this);
+                    }
+                    if (EmailType.equals(AllConstants.EmailTypeAlternative3)) {
+                        M.setAlternativeEmail3(email, MainActivity.this);
+                    }
+                    if (EmailType.equals(AllConstants.EmailTypeAlternative4)) {
+                        M.setAlternativeEmail4(email, MainActivity.this);
                     }
                     M.showToast(MainActivity.this, getString(R.string.EmailChanged));
                 } else {

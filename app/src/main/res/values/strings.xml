@@ -44,8 +44,11 @@
     <string name="NoInternetConnection">No Internet Connection</string>
 
     <string name="home_item">Home</string>
-    <string name="email_prim_edit_item">Edit Contact Email</string>
-    <string name="email_alt_edit_item">Edit Contact Email</string>
+    <string name="email_prim_edit_item">Primary Email</string>
+    <string name="email_alt1_edit_item">Contact 1 Email</string>
+    <string name="email_alt2_edit_item">Contact 2 Email</string>
+    <string name="email_alt3_edit_item">Contact 3 Email</string>
+    <string name="email_alt4_edit_item">Contact 4 Email</string>
     <string name="log_out_item">Logout</string>
     <string name="configuracion_item">Configuration</string>
     <string name="EmailChanged">Email Changed!!</string>
@@ -65,5 +68,10 @@
     <string name="SendingMail">Sending Mail</string>
     <string name="EmailSent">Email sent!!</string>
     <string name="EmailIsNotChanged">Email has not been changed</string>
+    <string name="EmailPrimary">Primary Email</string>
+    <string name="EmailAlternative1">Contact 1 Email</string>
+    <string name="EmailAlternative2">Contact 2 Email</string>
+    <string name="EmailAlternative3">Contact 3 Email</string>
+    <string name="EmailAlternative4">Contact 4 Email</string>
 
 </resources>

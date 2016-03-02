@@ -26,12 +26,11 @@
     <string name="NoInternetConnection">No hay conexion a Internet</string>
 
     <string name="home_item">Inicio</string>
-    <string name="email_prim_edit_item">Cambiar Correo Principal</string>
-    <string name="email_alt_edit_item">Cambiar Correo Contacto</string>
+    <string name="email_prim_edit_item">Email Principal</string>
     <string name="log_out_item">Cerrar Sesión</string>
     <string name="configuracion_item">Configuración</string>
     <string name="EmailChanged">Correo Cambiado!!</string>
-    <string name="EmailChangeDialog">Dialogo Cambio de Correo</string>
+    <string name="EmailChangeDialog">Modificar Correo</string>
     <string name="DoneText">Hecho</string>
     <string name="messageHeader">Estimado Usuario,</string>
     <string name="messageBody">ess</string>
@@ -47,7 +46,16 @@
     <string name="CancelText">Cancelar</string>
     <string name="EmailIsNotChanged">El correo electrónico no ha sido cambiado</string>
     <string name="interstitial_ad_sample">Interstitial Ad Sample</string>
-    <string name="next_level">Sguiente Nivel</string>
+    <string name="next_level">Siguiente Nivel</string>
     <string name="start_level">Nivel 1</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="EmailAlternative1">Correo Contacto 1</string>
+    <string name="EmailAlternative2">Correo Contacto 2</string>
+    <string name="EmailAlternative3">Correo Contacto 3</string>
+    <string name="EmailAlternative4">Correo Contacto 4</string>
+    <string name="EmailPrimary">Correo Principal</string>
+    <string name="email_alt1_edit_item">Email Contacto 1</string>
+    <string name="email_alt2_edit_item">Email Contacto 2</string>
+    <string name="email_alt3_edit_item">Email Contacto 3</string>
+    <string name="email_alt4_edit_item">Email Contacto 4</string>
 </resources>

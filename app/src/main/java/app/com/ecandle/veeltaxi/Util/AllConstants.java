@@ -48,4 +48,10 @@ public class AllConstants {
 	public static final Integer nav_requisitos = 16908332;
 
 	public static final Integer draw_logout = 2131558587;
+
+	public static final String EmailTypePrimary = "prim";
+	public static final String EmailTypeAlternative1 = "alt1";
+	public static final String EmailTypeAlternative2 = "alt2";
+	public static final String EmailTypeAlternative3 = "alt3";
+	public static final String EmailTypeAlternative4 = "alt4";
 }

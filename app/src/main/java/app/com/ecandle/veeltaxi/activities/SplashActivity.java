@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -21,6 +22,8 @@ public class SplashActivity extends AppCompatActivity {
     /** Called when the activity is first created. */
     private final Handler mHandler = new Handler();
     private static final int duration = 6000;
+
+    private static final String TAG = SplashActivity.class.getSimpleName();
 
     String username, password;
     ConnectionDetector connectionDetector;
@@ -45,16 +48,18 @@ public class SplashActivity extends AppCompatActivity {
         } else {
 
 
-            if (M.getUsername(this) == null) {
-                Intent mIntent = new Intent(this, LoginActivity.class);
-                startActivity(mIntent);
-                finish();
-            } else {
-
-                username = M.getUsername(this);
-                password = M.getPassword(this);
-                checkuser();
-            }
+//            if (M.getUsername(this) == null) {
+//                Intent mIntent = new Intent(this, LoginActivity.class);
+//                startActivity(mIntent);
+//                finish();
+//            } else {
+//
+//                username = M.getUsername(this);
+//                password = M.getPassword(this);
+//                //checkuser();
+//                checkPrimaryEMail();
+//            }
+            checkPrimaryEMail();
         }
     }
 
@@ -89,6 +94,18 @@ public class SplashActivity extends AppCompatActivity {
         });
     }
 
+    public void checkPrimaryEMail(){
+        if (M.getPrimaryEmail(this) != null){
+            Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(mIntent);
+            finish();
+            Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
+        } else {
+            Intent mIntent = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(mIntent);
+            finish();
+        }
+    }
     @Override
     protected void onPause() {
         super.onPause();
@@ -99,9 +116,10 @@ public class SplashActivity extends AppCompatActivity {
     private final Runnable mPendingLauncherRunnable = new Runnable() {
 
         public void run() {
+//            final Intent intent = new Intent(SplashActivity.this,
+//                    LoginActivity.class);
             final Intent intent = new Intent(SplashActivity.this,
-                    LoginActivity.class);
-
+                    MainActivity.class);
             startActivity(intent);
             finish();
         }

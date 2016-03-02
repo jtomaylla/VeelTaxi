@@ -5,25 +5,28 @@
         <item
             android:id="@+id/nav_home"
             android:checked="true"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/home_item" />
         <item
             android:id="@+id/email_prim_edit"
-            android:icon="@drawable/ic_file_document"
+            android:icon="@drawable/ic_email_black_24dp"
             android:title="@string/email_prim_edit_item" />
         <item
-            android:id="@+id/email_alt_edit"
-            android:icon="@drawable/ic_edificio_black"
-            android:title="@string/email_alt_edit_item" />
-        <!--<item-->
-            <!--android:id="@+id/nav_requisitos"-->
-            <!--android:icon="@drawable/ic_info_black"-->
-            <!--android:title="@string/requisitos_item" />-->
-        <!--<item-->
-            <!--android:id="@+id/nav_facturas"-->
-            <!--android:icon="@drawable/ic_file_document"-->
-            <!--android:title="@string/facturas_item" />-->
-
+            android:id="@+id/email_alt1_edit"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="@string/email_alt1_edit_item" />
+        <item
+            android:id="@+id/email_alt2_edit"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="@string/email_alt2_edit_item" />
+        <item
+            android:id="@+id/email_alt3_edit"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="@string/email_alt3_edit_item" />
+        <item
+            android:id="@+id/email_alt4_edit"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="@string/email_alt4_edit_item" />
         <!-- Sección de configuración -->
         <item
             android:id="@+id/configuration_section"

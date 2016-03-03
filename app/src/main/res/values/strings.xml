@@ -74,4 +74,6 @@
     <string name="EmailAlternative3">Contact 3 Email</string>
     <string name="EmailAlternative4">Contact 4 Email</string>
 
+    <string name="title_activity_maps">Map</string>
+
 </resources>

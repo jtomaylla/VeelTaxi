@@ -54,4 +54,7 @@ public class AllConstants {
 	public static final String EmailTypeAlternative2 = "alt2";
 	public static final String EmailTypeAlternative3 = "alt3";
 	public static final String EmailTypeAlternative4 = "alt4";
+
+	public static final String username = "veeltaxi2015@gmail.com";
+	public static final String password = "Veeltaxi15";
 }

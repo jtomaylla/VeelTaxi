@@ -1,7 +1,47 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="app.com.ecandle.veeltaxi.activities.Main2Activity" />
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="app.com.ecandle.veeltaxi.activities.Main2Activity" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/map"
+        android:padding="6dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/traffic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onTrafficToggled"
+            android:text="@string/traffic" />
+
+        <Button
+            android:id="@+id/btnStartRide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStartRide"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/StartRideText" />
+
+        <Button
+            android:id="@+id/btnEndRide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onEndRide"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/EndRideText" />
+    </LinearLayout>
+</RelativeLayout>

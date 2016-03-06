@@ -24,7 +24,7 @@ import retrofit.RetrofitError;
 // * Created by Jtomaylla on 2015-02-03.
 // *
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
-    private static final String LOG_TAG = LoginActivity.class.getName();
+    private static final String TAG = LoginActivity.class.getName();
     EditText etusername, etpassword, etemail;
     Button btnlogin, btnSaltearse;
     ImageButton  imbAdmin;
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         if (M.getPrimaryEmail(this) != null){
             etemail.setText(M.getPrimaryEmail(this));
-            Log.i(LOG_TAG + "M.getPrimaryEmail:", M.getPrimaryEmail(this));
+            Log.i(TAG + "M.getPrimaryEmail:", M.getPrimaryEmail(this));
         }
 
 
@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 // Guardar email valido en Shared Preferences
                 M.setPrimaryEmail(email,LoginActivity.this);
                 //M.setAlternativeEmail("juan.tomaylla@hotmail.com",LoginActivity.this);
+                Log.i(TAG , "call 3 MainActivity");
                 Intent mIntent = new Intent(LoginActivity.this, MainActivity.class );
 
                 startActivity(mIntent);

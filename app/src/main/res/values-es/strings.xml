@@ -59,8 +59,8 @@
     <string name="email_alt3_edit_item">Email Contacto 3</string>
     <string name="email_alt4_edit_item">Email Contacto 4</string>
     <string name="title_activity_maps">Mapa</string>
-    <string name="StartRideText">Comenzar Viaje</string>
-    <string name="EndRideText">Terminar Viaje</string>
+    <string name="StartRideText">Inic. Viaje</string>
+    <string name="EndRideText">Fin Viaje</string>
     <string name="traffic">Trafico</string>
     <string name="map_not_ready">Map no esta listo</string>
 </resources>

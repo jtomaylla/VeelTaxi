@@ -1,9 +1,7 @@
 package app.com.ecandle.veeltaxi.activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,15 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.maps.GoogleMap;
 
 import app.com.ecandle.veeltaxi.R;
 import app.com.ecandle.veeltaxi.Util.AllConstants;
@@ -40,47 +34,13 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 
 public class MainActivity extends AppCompatActivity {
-    private Context con;
-    private GoogleMap googleMap;
-
-
     // LogCat tag
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
-
-    private Location mLastLocation;
-
-    // Google client to interact with Google API
-    private GoogleApiClient mGoogleApiClient;
-
-    // boolean flag to toggle periodic location updates
-    private boolean mRequestingLocationUpdates = false;
-
-    private LocationRequest mLocationRequest;
-
-    // Location updates intervals in sec
-    private static int UPDATE_INTERVAL = 10000; // 10 sec
-    private static int FATEST_INTERVAL = 5000; // 5 sec
-    private static int DISPLACEMENT = 10; // 10 meters
-
-    private TextView lblLocation;
-    double latitude;
-    double longitude;
 
     AdView adView;
     AdRequest bannerRequest, fullScreenAdRequest;
     InterstitialAd fullScreenAdd;
 
-//    private LinearLayout atms, banks, bookstores, busstations, cafes, carwash,
-//            dentist, doctor, food, gasstation, grocery, gym, hospitals,
-//            mosques, theater, park, pharmacy, police, restaurant, school, mall,
-//            spa, store, university;
-
-    private ShareActionProvider myShareActionProvider;
-    // Activate when use GeoLocation
-
-    //LocationFound updateLoc;
 
     EditText edtTaxiId;
     ImageButton imbSearch;

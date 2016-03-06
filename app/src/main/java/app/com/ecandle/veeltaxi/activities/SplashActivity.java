@@ -27,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
     String username, password;
     ConnectionDetector connectionDetector;
+    Boolean DriverIdInputLoaded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,10 +97,13 @@ public class SplashActivity extends AppCompatActivity {
 
     public void checkPrimaryEMail(){
         if (M.getPrimaryEmail(this) != null){
+            Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
+            Log.i(TAG , "call 2 MainActivity");
+            DriverIdInputLoaded = true;
             Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(mIntent);
             finish();
-            Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
+
         } else {
             Intent mIntent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(mIntent);
@@ -118,10 +122,15 @@ public class SplashActivity extends AppCompatActivity {
         public void run() {
 //            final Intent intent = new Intent(SplashActivity.this,
 //                    LoginActivity.class);
-            final Intent intent = new Intent(SplashActivity.this,
-                    MainActivity.class);
-            startActivity(intent);
-            finish();
+
+            if (!DriverIdInputLoaded){
+                Log.i(TAG, "call 2 MainActivity");
+                final Intent intent = new Intent(SplashActivity.this,
+                        MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
         }
     };
 }

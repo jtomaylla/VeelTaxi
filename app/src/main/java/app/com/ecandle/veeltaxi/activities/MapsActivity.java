@@ -16,8 +16,8 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -52,8 +52,8 @@ import app.com.ecandle.veeltaxi.model.M;
 public class MapsActivity extends FragmentActivity implements LocationListener {
 
     GoogleMap googleMap;
-    private Button btnStartRide;
-    private Button btnEndRide;
+    private ImageButton imbStartRide;
+    private ImageButton imbEndRide;
     String email1;
     String email2;
     String email3;
@@ -89,8 +89,8 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         email5 = M.getAlternativeEmail4(this);
 
         mTrafficCheckbox = (CheckBox) findViewById(R.id.traffic);
-        btnStartRide = (Button) findViewById(R.id.btnStartRide);
-        btnEndRide = (Button) findViewById(R.id.btnEndRide);
+        imbStartRide = (ImageButton) findViewById(R.id.imbStartRide);
+        imbEndRide = (ImageButton) findViewById(R.id.imbEndRide);
 
         // Getting Google Play availability status
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
@@ -131,22 +131,31 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
+                Toast.makeText(this,"GPS Localization error" , Toast.LENGTH_SHORT).show();
                 return;
+            } else {
+                location = locationManager.getLastKnownLocation(provider);
+                if (location != null){
+                    LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+                    longitude = location.getLongitude();
+                    latitude = location.getLatitude();
+                    latStart = String.valueOf(latitude);
+                    lngStart = String.valueOf(longitude);
+                    String msj = "lon:"+lngStart+"-lat:"+latStart;
+                    //Toast.makeText(this,msj , Toast.LENGTH_SHORT).show();
+                    Log.i("MapsActivity-msj:", msj);
+                    //Send Mail with LatLng
+                    if(location!=null){
+                        onLocationChanged(location);
+                    }
+                    locationManager.requestLocationUpdates(provider, 20000, 0, this);
+
+                } else{
+                    Toast.makeText(this,"GPS Localization error" , Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
-            location = locationManager.getLastKnownLocation(provider);
-            LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-            latStart = String.valueOf(latitude);
-            lngStart = String.valueOf(longitude);
-            String msj = "lon:"+lngStart+"-lat:"+latStart;
-            //Toast.makeText(this,msj , Toast.LENGTH_SHORT).show();
-            Log.i("MapsActivity-msj:", msj);
-            //Send Mail with LatLng
-            if(location!=null){
-                onLocationChanged(location);
-            }
-            locationManager.requestLocationUpdates(provider, 20000, 0, this);
+
         }
     }
     @Override
@@ -241,7 +250,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
     }
 
     /**
-     * Called when the btnStartRide button is clicked.
+     * Called when the imbStartRide button is clicked.
      */
     public void onStartRide(View view) {
         Log.i("onStartRide:", "SendStartMail");
@@ -279,13 +288,15 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         String message = Html.fromHtml(htmlEmail).toString();
         //String message = htmlEmail;
         sendMail(email1, email2, email3, email4, email5, subject, message);
-        btnStartRide.setEnabled(false);
-        btnStartRide.setTextColor(727272);
+        imbStartRide.setEnabled(false);
+        //imbStartRide.setTextColor(727272);
     }
     /**
-     * Called when the btnEndRide button is clicked.
+     * Called when the imbEndRide button is clicked.
      */
     public void onEndRide(View view) {
+        String latEnd ="";
+        String lngEnd ="";
         // Getting Current Location
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -295,22 +306,32 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
+            Toast.makeText(this,"GPS Localization error" , Toast.LENGTH_SHORT).show();
             return;
-        }
-        location = locationManager.getLastKnownLocation(provider);
-        LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
-        String latEnd = String.valueOf(latitude);
-        String lngEnd = String.valueOf(longitude);
-        String msj = "lon:"+lngEnd+"-lat:"+latEnd;
-        //Toast.makeText(this,msj , Toast.LENGTH_SHORT).show();
+        } else {
+            location = locationManager.getLastKnownLocation(provider);
+            if (location != null){
+                LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+                longitude = location.getLongitude();
+                latitude = location.getLatitude();
+                latEnd = String.valueOf(latitude);
+                lngEnd = String.valueOf(longitude);
+                String msj = "lon:"+lngEnd+"-lat:"+latEnd;
+                //Toast.makeText(this,msj , Toast.LENGTH_SHORT).show();
 
-        Log.i("MapsActivity-end:", msj);
-        //Send Mail with LatLng
-        if(location!=null){
-            onLocationChanged(location);
+                Log.i("MapsActivity-end:", msj);
+                //Send Mail with LatLng
+                if(location!=null){
+                    onLocationChanged(location);
+                }
+                locationManager.requestLocationUpdates(provider, 20000, 0, this);
+
+            } else{
+                Toast.makeText(this,"GPS Localization error" , Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
+
         Log.i("onEndRide:", "SendEndMail");
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String date = df.format(Calendar.getInstance().getTime());
@@ -318,19 +339,19 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         String language = Locale.getDefault().getLanguage();
 
         Log.i("onStartRide.language:", language);
-        String htmlEmail = "";
+        String htmlEmailEnd = "";
 
         if (language.equals("es") ) {
-            htmlEmail = "<body><h1>Estimado usuario,</h1><p>Esta es la Info de Fin del Viaje :<br><br>\n" +
+            htmlEmailEnd = "<body><h1>Estimado usuario,</h1><p>Esta es la Info de Fin del Viaje :<br><br>\n" +
                     "      <strong>Fecha Viaje: "+ date +" </strong> &nbsp;</p><br>\n" +
                     "      <strong>ID Conductor: "+ mDriverId +" </strong> &nbsp;</p><br>\n" +
                     "      <strong>Nombre Conductor: "+ mName +" </strong> &nbsp;</p><br>\n" +
                     "      <strong>Compañia: "+ mCompany +" </strong> &nbsp;</p><br>\n" +
-                    "      <strong>Latitud: "+ latStart +" </strong> &nbsp;</p><br>\n" +
-                    "      <strong>Longitud: "+ lngStart +" </strong> &nbsp;</p><br>\n" +
+                    "      <strong>Latitud: "+ latEnd +" </strong> &nbsp;</p><br>\n" +
+                    "      <strong>Longitud: "+ lngEnd +" </strong> &nbsp;</p><br>\n" +
                     "      <blockquote>Saludos,<a></blockquote><br>Equipo VeelTaxi</body>";
         } else {
-            htmlEmail = "<body><h1>Hi All,</h1><p>Here you Ride End details Info :<br><br>\n" +
+            htmlEmailEnd = "<body><h1>Hi All,</h1><p>Here you Ride End details Info :<br><br>\n" +
                     "      <strong>Ride Date: "+ date +" </strong> &nbsp;</p><br>\n" +
                     "      <strong>Taxi Driver ID: "+ mDriverId +" </strong> &nbsp;</p><br>\n" +
                     "      <strong>Taxi Driver Name: "+ mName +" </strong> &nbsp;</p><br>\n" +
@@ -340,11 +361,10 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
                     "      <blockquote>Greets,<a></blockquote><br>VeelTaxi Team</body>";
         }
 
-        //String message = Html.fromHtml(getString(R.string.htmlEmail)).toString();
-        String message = Html.fromHtml(htmlEmail).toString();
+        String message = Html.fromHtml(htmlEmailEnd).toString();
         sendMail(email1, email2, email3, email4, email5, subject, message);
-        btnEndRide.setEnabled(false);
-        btnEndRide.setTextColor(727272);
+        imbEndRide.setEnabled(false);
+        //tvwEndRide.setTextColor(727272);
     }
 
     private void sendMail(String email1, String email2,String email3, String email4, String email5,String subject, String messageBody) {

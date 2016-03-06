@@ -27,21 +27,65 @@ android:layout_height="match_parent">
             android:layout_height="wrap_content"
             android:onClick="onTrafficToggled"
             android:text="@string/traffic" />
-
-        <Button
-            android:id="@+id/btnStartRide"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onStartRide"
-            android:textColor="@color/colorPrimaryText"
-            android:text="@string/StartRideText" />
+            android:layout_gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/btnEndRide"
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imbStartRide"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:onClick="onStartRide"
+                android:elevation="4dp"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvwStartRide"
+                android:text="@string/StartRideText"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onEndRide"
-            android:textColor="@color/colorPrimaryText"
-            android:text="@string/EndRideText" />
+            android:layout_gravity="center_horizontal">
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imbEndRide"
+                android:src="@drawable/ic_stop_black_24dp"
+                android:onClick="onEndRide"
+                android:elevation="4dp"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvwEndRide"
+                android:text="@string/EndRideText"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <!--<Button-->
+            <!--android:id="@+id/btnStartRide"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="onStartRide"-->
+            <!--android:textColor="@color/colorPrimaryText"-->
+            <!--android:text="@string/StartRideText" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnEndRide"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="onEndRide"-->
+            <!--android:textColor="@color/colorPrimaryText"-->
+            <!--android:text="@string/EndRideText" />-->
     </LinearLayout>
 </RelativeLayout>

@@ -15,26 +15,4 @@ public interface DriverAPI {
     @POST("/getDriverByDriverId.php")
     void search(@Field("driverid") String driverid, Callback<DriverModel> response);
 
-
-//    @Multipart
-//    @POST("/register")
-//    void register(@Part("image") TypedFile image,
-//                  @Part("username") String username,
-//                  @Part("password") String Password,
-//                  @Part("email") String email,
-//                  @Part("countryid") String countryid,
-//                  @Part("logintype") String logintype,
-//                  Callback<ResponseModel> response);
-//
-//
-//    @Multipart
-//    @POST("/register")
-//    void fbregister(@Part("username") String username,
-//                    @Part("password") String Password,
-//                    @Part("email") String email,
-//                    @Part("countryid") String countryid,
-//                    @Part("logintype") String logintype,
-//                    @Part("name") String name,
-//                    Callback<ResponseModel> response);
-
 }

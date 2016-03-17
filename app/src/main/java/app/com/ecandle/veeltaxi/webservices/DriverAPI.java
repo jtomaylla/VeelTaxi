@@ -11,7 +11,7 @@ import retrofit.http.POST;
 // Created by Jtomaylla on 2016-02-09.
 // **
 public interface DriverAPI {
-@FormUrlEncoded
+    @FormUrlEncoded
     @POST("/getDriverByDriverId.php")
     void search(@Field("driverid") String driverid, Callback<DriverModel> response);
 }

@@ -14,4 +14,5 @@ public interface DriverAPI {
     @FormUrlEncoded
     @POST("/getDriverByDriverId.php")
     void search(@Field("driverid") String driverid, Callback<DriverModel> response);
+
 }

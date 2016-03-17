@@ -27,10 +27,10 @@
 
     <!-- Ad Details -->
     <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8406592670080616/6058891887</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-1571785604871931/2470616802</string>
 
     <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
-        AIzaSyCmVJ0H2MAVHJmATQSxhDCiv-ro5YCnmcE
+        AIzaSyDTm3ckt_wWm4nbo3RHgln9P2bVfvKJLIs
     </string>
     <string name="TaxiIdHint">Enter Taxi ID</string>
     <string name="taxi_name_text">Jhair</string>
@@ -79,5 +79,7 @@
     <string name="EndRideText">End Ride</string>
     <string name="traffic">Traffic</string>
     <string name="map_not_ready">Map not ready</string>
+    <string name="btn_start_location_updates">START LOCATION UPDATES</string>
+    <string name="btn_stop_location_updates">STOP LOCATION UPDATES</string>
 
 </resources>

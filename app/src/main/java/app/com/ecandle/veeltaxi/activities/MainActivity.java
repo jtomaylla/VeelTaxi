@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton imbSearch;
     ConnectionDetector connectionDetector;
     TextView tvwEmail;
+
     /**
      * Instancia del drawer
      */
@@ -67,9 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        TextView tvwEmail = (TextView) findViewById(R.id.email);
+        View header = navigationView.getHeaderView(0);
+        TextView tvwEmail = (TextView) header.findViewById(R.id.email);
+
         if (M.getPrimaryEmail(this) != null){
             tvwEmail.setText(M.getPrimaryEmail(this));
+
             Log.i(TAG+"M.getPrimaryEmail:",M.getPrimaryEmail(this));
         }
         if (navigationView != null) {
@@ -79,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         connectionDetector = new ConnectionDetector(this);
         edtTaxiId = (EditText) findViewById(R.id.edtTaxiId);
         imbSearch = (ImageButton) findViewById(R.id.imbSearch);
-
 
         imbSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
         enableAd();
 
+
     }
+
 
     private void searchTaxiId(String driver_id) {
 
@@ -382,4 +387,5 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
+
 }

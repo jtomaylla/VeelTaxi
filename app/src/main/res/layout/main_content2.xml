@@ -17,9 +17,11 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimaryDark"
     android:gravity="center|top"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="app.com.ecandle.veeltaxi.activities.HomeFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -71,6 +73,17 @@
         android:text="@string/taxi_company_text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_gravity="left" />
+
+    <TextView
+        android:id="@+id/lblLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taxi_company"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:text="LatLong:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"

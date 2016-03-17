@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
     String username, password;
     ConnectionDetector connectionDetector;
-    Boolean DriverIdInputLoaded;
+    Boolean PrimaryEmailExist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,24 +44,15 @@ public class SplashActivity extends AppCompatActivity {
         connectionDetector = new ConnectionDetector(this);
         if (!connectionDetector.isConnectingToInternet()) {
 
-            M.showToast(this, "No Internet Connection");
-            finish();
+            M.showToast(this,getString(R.string.NoInternetConnection));
+
+            //finish();
         } else {
 
-
-//            if (M.getUsername(this) == null) {
-//                Intent mIntent = new Intent(this, LoginActivity.class);
-//                startActivity(mIntent);
-//                finish();
-//            } else {
-//
-//                username = M.getUsername(this);
-//                password = M.getPassword(this);
-//                //checkuser();
-//                checkPrimaryEMail();
-//            }
-            checkPrimaryEMail();
+            //checkPrimaryEMail();
         }
+
+        checkPrimaryEMail();
     }
 
     public void checkuser() {
@@ -99,12 +90,13 @@ public class SplashActivity extends AppCompatActivity {
         if (M.getPrimaryEmail(this) != null){
             Log.i(TAG + "-M.getPrimaryEmail:", M.getPrimaryEmail(this));
             Log.i(TAG , "call 2 MainActivity");
-            DriverIdInputLoaded = true;
+            PrimaryEmailExist = true;
             Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(mIntent);
             finish();
 
         } else {
+            PrimaryEmailExist = false;
             Intent mIntent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(mIntent);
             finish();
@@ -122,15 +114,15 @@ public class SplashActivity extends AppCompatActivity {
         public void run() {
 //            final Intent intent = new Intent(SplashActivity.this,
 //                    LoginActivity.class);
-
-            if (!DriverIdInputLoaded){
-                Log.i(TAG, "call 2 MainActivity");
-                final Intent intent = new Intent(SplashActivity.this,
-                        MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
+            //if (PrimaryEmailExist != null){
+                if (!PrimaryEmailExist){
+                    Log.i(TAG, "call 2 MainActivity");
+                    final Intent intent = new Intent(SplashActivity.this,
+                            MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            //    }
         }
     };
 }

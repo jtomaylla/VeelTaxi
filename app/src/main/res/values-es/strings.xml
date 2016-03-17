@@ -63,4 +63,7 @@
     <string name="EndRideText">Fin Viaje</string>
     <string name="traffic">Trafico</string>
     <string name="map_not_ready">Map no esta listo</string>
+    <string name="btn_start_location_updates">INICIAR ACTUALIZACION LOCALIZACION</string>
+    <string name="btn_stop_location_updates">PARAR ACTUALIZACION LOCALIZACION</string>
+
 </resources>
